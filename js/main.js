@@ -51,6 +51,9 @@ createApp({
         this.activeSlides++;
       }
     },
+    switchImage(index) {
+      this.activeSlides = index;
+    },
   },
 }).mount("#app");
 
