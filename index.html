@@ -35,40 +35,53 @@
 </head>
 
 <body>
+	<div id="app">
 
-	<div class="my-carousel-container">
-		<div class="my-carousel">
-			<div class="my-carousel-main" id="slides-container">
+		<div class="my-carousel-container">
+			<div class="my-carousel">
+				<div class="my-carousel-main" id="slides-container">
 
+					<div class="slide active">
+						<img :src="slides.images[activeSlides]">
+						<div class="slide-text ">
+							<h2>
+								{{slides.titles [activeSlides]}}
+							</h2>
+							<p>
+								{{slides.text [activeSlides]}}
+							</p>
+						</div>
+					</div>
 
+				</div>
+
+				<div class="my-carousel-thumbs" id="thumbs-container">
+					<img :src="image" v-for="(image,index) in slides.images" class="thumb"
+						:class="(index == activeSlides)?'borders-active':''">
+				</div>
 			</div>
 
-			<div class="my-carousel-thumbs" id="thumbs-container">
+			<div class="my-carousel-controls">
 
+				<button class="btn btn-outline-dark" id="prev" @click="prevImage()">
+					<i class="fa-solid fa-chevron-left"></i>
+				</button>
+
+				<button class="btn btn-outline-dark" id="inverti-autoplay">
+					<i class="fa-solid fa-repeat"></i>
+				</button>
+
+				<button class="btn btn-outline-dark" id="stop-autoplay">
+					<i class="fa-solid fa-stop"></i>
+				</button>
+
+				<button class="btn btn-outline-dark" id="next" @click="nextImage()">
+					<i class="fa-solid fa-chevron-right"></i>
+				</button>
 			</div>
 		</div>
 
-		<div class="my-carousel-controls">
-
-			<button class="btn btn-outline-dark" id="prev">
-				<i class="fa-solid fa-chevron-left"></i>
-			</button>
-
-			<button class="btn btn-outline-dark" id="inverti-autoplay">
-				<i class="fa-solid fa-repeat"></i>
-			</button>
-
-			<button class="btn btn-outline-dark" id="stop-autoplay">
-				<i class="fa-solid fa-stop"></i>
-			</button>
-
-			<button class="btn btn-outline-dark" id="next">
-				<i class="fa-solid fa-chevron-right"></i>
-			</button>
-		</div>
 	</div>
-
-
 
 </body>
 
